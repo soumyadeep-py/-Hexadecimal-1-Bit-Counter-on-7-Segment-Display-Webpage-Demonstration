@@ -1,0 +1,377 @@
+:root {
+    --bg-color-light : rgb(255, 226, 182);
+    --text-color-dark : rgb(165, 42, 42);
+    --bg-color-dark : rgb(95, 22, 22);
+    --text-color-light : rgb(255, 199, 114);
+    --display-bg-color : rgb(48, 47, 46);
+    --button-background-color-dark : rgb(253, 255, 224);
+    --button-text-color-dark : brown;
+    --button-background-color-light : rgb(95, 22, 22);
+    --button-text-color-light : rgb(255, 226, 182);
+    --heading-color-dark : rgb(250, 254, 113);
+    --heading-color-light : rgb(90, 21, 21);
+}
+
+/* TEXT SETTINGS */
+.display-font {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 15vh;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 90,
+    "GRAD" 100,
+    "ROND" 100;
+}
+.display-font.dark {
+    color: var(--heading-color-dark);
+}
+.display-font.light {
+    color: var(--heading-color-light);
+}
+.numpad-font {
+  font-family: "Limelight", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body.dark {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    font-size: 20px;
+    font-weight: 500;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+body.light {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    font-size: 20px;
+    font-weight: 500;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+body {
+    display: flex;
+    height: 95vh;
+    width: 95vw;
+    margin: 0;
+    padding: 1vh 1vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+#head {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    height: 10vh;
+    width: 100vw;
+    padding: 2vh;
+    font-weight: 500;
+}
+
+#heading {
+    width: 80vw;
+    height: 10vh;
+    font-size: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+#theme {
+    width: 6vw;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1vh;
+    border: rgb(110, 26, 26) 2px;
+    border-style: double;
+    position: relative;
+    overflow: hidden;
+}
+.theme-selection-btn, .theme-selection-sep {
+    text-align: center;
+    padding: 1vh;
+    height: 3vh;
+    width: 3vw;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    user-select: none;
+}
+.theme-selection-btn.light, .theme-selection-sep.light {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+.theme-selection-btn.dark, .theme-selection-sep.dark {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+/* sliding indicator inside the theme selector */
+#theme-slider {
+    position: absolute;
+    top: 4%;
+    left: 2%;
+    width: 3vw;
+    height: 3vh;
+    border-radius: 0.8vh;
+    background-color: rgba(255,255,255,0.08);
+    transition: transform 320ms cubic-bezier(.2,.8,.2,1);
+    z-index: 1;
+}
+
+/* when theme container has 'light' class move slider to right */
+#theme.light #theme-slider {
+    transform: translateX(100%);
+}
+
+#theme.light #theme-light {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+}
+
+#theme.light #theme-dark {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+}
+
+#theme.dark #theme-light {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+}
+
+#theme.dark #theme-dark {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+}
+
+/* smooth body color transitions */
+body, body.dark, body.light {
+    transition: background-color 320ms ease, color 320ms ease;
+}
+
+
+#body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5vw;
+    height: 75vh;
+    width: 100vw;
+    padding: 2vh;
+}
+#screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0%;
+    width: auto;
+    height: auto;
+    min-width: 240px;
+    min-height: 420px;
+    transition: background-color 320ms ease, color 320ms ease;
+}
+body.dark #screen {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+}
+body.light #screen {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+}
+#display {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    height: 310px;
+}
+#display-heading {
+    font-family: 'Almendra';
+    font-size: 4vh;
+    font-weight: 1000;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 5% 0% 10% 0%;
+}
+#display-heading.dark {
+    color: var(--text-color-dark);
+}
+#display-heading.light {
+    color: var(--text-color-light);
+}
+.segment {
+    position: absolute;
+    background: #d0d0d0;
+    transition: background-color 0.2s;
+}
+.segment.on {
+    background: red;
+}
+.horizontal {
+    width: 120px;
+    height: 20px;
+    clip-path: polygon(
+        10% 0%,
+        91.67% 0%,
+        100% 50%,
+        91.67% 100%,
+        10% 100%,
+        0% 50%
+    );
+}
+.vertical {
+    width: 20px;
+    height: 120px;
+
+    clip-path: polygon(
+        0% 8.33%,
+        50% 0%,
+        100% 8.33%,
+        100% 91.67%,
+        50% 100%,
+        0% 91.67%
+    );
+}
+.a {
+    top: 0;
+    left: 14.33333333%;
+}
+
+.b {
+    top: 4%;
+    left: 82.9333333333%;
+}
+
+.c {
+    top: 45%;
+    left: 82.93333333333%;
+}
+
+.d {
+    top: 81%;
+    left: 14.333333333333%;
+}
+
+.e {
+    top: 45%;
+    left: 4.333333333333%;
+}
+
+.f {
+    top: 4%;
+    left: 4.333333333333%;
+}
+
+.g {
+    top: 40.67%;
+    left: 14.333333333333%;
+}
+#screen-numpad-heading {
+    font-family: 'Almendra';
+    font-size: 4vh;
+    font-weight: 1000;
+    text-align: center;
+}
+#screen-numpad {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh;
+    transition: background-color 320ms ease, color 320ms ease;
+}
+body.dark #screen-numpad {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+}
+body.light #screen-numpad {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+}
+#screen-numpad-table td {
+    background-color: var(--button-background-color-dark);
+    color: var(--button-text-color-dark);
+    border-radius: 50%;
+    border: none;
+    text-align: center;
+    height: 5vh;
+    width: 5vh;
+    font-family: 'Almendra', sans-serif;
+    font-size: 3.5vh;
+    font-weight: 700;
+}
+#screen-numpad-table.light td {
+    background-color: var(--button-background-color-light);
+    color: var(--button-text-color-light);
+}
+#screen-numpad-table.dark td {
+    background-color: var(--button-background-color-light);
+    color: var(--button-text-color-light);
+}
+#btn-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 320ms ease, color 320ms ease;
+    padding: 1%;
+    width: 20vw;
+    height: 20vh;
+}
+body.dark #btn-panel {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+}
+body.light #btn-panel {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+}
+#increment, #decrement, #power {
+    background-color: var(--button-background-color-dark);
+    color: var(--button-text-color-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 50%;
+    height: 50%;
+    font-size: 6vh;
+    font-weight: 1000;
+    aspect-ratio: 1/1;
+    margin: 5%;
+}
+
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6vh;
+    width: 100vw;
+    padding: 2vh;
+    transition: background-color 320ms ease, color 320ms ease;
+}
+body.dark #footer {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+}
+body.light #footer {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+}

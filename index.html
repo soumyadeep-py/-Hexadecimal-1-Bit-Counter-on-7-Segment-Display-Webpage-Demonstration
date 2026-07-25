@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexadecimal Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+    <div id="main">
+        <!-- HEADING -->
+        <div id="head">
+            <div id="heading" class="display-font">
+                Hexadecimal 1 Bit Counter on 7 Segment Display
+            </div>
+            <div id="theme" class="click">
+                    <div id="theme-slider"></div>
+                <div id="theme-light" class="theme-selection-btn dark">
+                    <i class="fa-solid fa-sun"></i>
+                </div>
+                <div id="theme-dark" class="theme-selection-btn dark">
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+            </div>
+        </div>
+        <!-- BODY -->
+        <div id="body">
+            <div id="screen">
+                <div id="display-heading">
+                    DISPLAY
+                </div>
+                <div id="display">
+                    <div class="segment a horizontal"></div>
+                    <div class="segment b vertical"></div>
+                    <div class="segment c vertical"></div>
+                    <div class="segment d horizontal"></div>
+                    <div class="segment e vertical"></div>
+                    <div class="segment f vertical"></div>
+                    <div class="segment g horizontal"></div>
+                </div>
+            </div>
+            <div id="screen-numpad">
+                <div id="screen-numpad-heading">
+                    NUMPAD
+                </div> 
+                <table id="screen-numpad-table" class="click">
+                    <tr>    <td id="numpad-7">7</td>   <td id="numpad-8">8</td>   <td id="numpad-9">9</td>   </tr>
+                    <tr>    <td id="numpad-4">4</td>   <td id="numpad-5">5</td>   <td id="numpad-6">6</td>   </tr>
+                    <tr>    <td id="numpad-1">1</td>   <td id="numpad-2">2</td>   <td id="numpad-3">3</td>   </tr>
+                    <tr>    <td style="background-color: rgb(0, 0, 0, 0);"></td>    <td id="numpad-0">0</td>   <td style="background-color: rgb(0, 0, 0, 0);"></td>   </tr>
+                </table>
+            </div>
+            <div id="btn-panel" class="click">
+                <div id="increment"><i class="fa-solid fa-caret-up"></i></div>
+                <div id="decrement"><i class="fa-solid fa-caret-down"></i></div>
+                <div id="power"><i class="fa-solid fa-power-off"></i></div>
+            </div>
+        </div>
+        <!-- FOOTER -->
+        <div id="footer">
+            <div id="footer-content">
+                ©️ CREATED BY SOUMYADEEP SAMANTA
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="script.js"></script>
+</body>
+</html>
